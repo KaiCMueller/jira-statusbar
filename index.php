@@ -184,7 +184,7 @@ $issues = $data['issuesData']['issues'];
 
 // no open sprint or no issues
 if (!isset($data['sprintsData']['sprints']) OR empty($data['sprintsData']['sprints']) OR empty($issues)) {
-    echo '<h1>No open found</h1></body></html>';
+    echo '<h1>No open sprint found</h1></body></html>';
     exit;
 }
 
@@ -277,9 +277,9 @@ foreach ($processedIssues as $issue) {
 
 // statistics calculation
 $results['storyPointsSum'] = $results['openStoryPoints'] + $results['developedStoryPoints'] + $results['inProgressStoryPoints'];
-$results['openStoryPointsPercent'] = round($results['openStoryPoints'] / $results['storyPointsSum'] * 100);
-$results['developedStoryPointsPercent'] = round($results['developedStoryPoints'] / $results['storyPointsSum'] * 100);
-$results['inProgressStoryPointsPercent'] = round($results['inProgressStoryPoints'] / $results['storyPointsSum'] * 100);
+$results['openStoryPointsPercent'] = floor($results['openStoryPoints'] / $results['storyPointsSum'] * 100);
+$results['developedStoryPointsPercent'] = floor($results['developedStoryPoints'] / $results['storyPointsSum'] * 100);
+$results['inProgressStoryPointsPercent'] = floor($results['inProgressStoryPoints'] / $results['storyPointsSum'] * 100);
 
 ?>
 <h1 style="float:left"><?php echo $data['sprintsData']['sprints'][0]['name']; ?></h1>
